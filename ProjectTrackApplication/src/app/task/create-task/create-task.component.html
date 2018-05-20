@@ -1,0 +1,82 @@
+<br>
+<br>
+<form [formGroup]="formData" (ngSubmit)="onClickSubmit(formData.value)">
+  <div class="form-horizontal">
+
+    <h4>Create ProjectTask</h4>
+    <hr />
+
+    <div class="form-group">
+      <label class="control-label col-md-2" for="startDate">Start Date</label>
+      <div class="col-md-10">
+        <input class="form-control text-box single-line" data-val="true" data-val-date="The field Start Date must be a date." data-val-required="The Start Date field is required."
+          id="startDate" formControlName="startDate" name="startDate" type="datetime" value="" />
+        <div *ngIf="formData.controls.startDate.errors && (formData.controls.startDate.dirty || formData.controls.startDate.touched)"
+          class="alert-danger">
+          <div *ngIf="formData.controls.startDate.errors.required">
+            Start Date is required
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-md-2" for="endDate">End Date</label>
+      <div class="col-md-10">
+        <input class="form-control text-box single-line" data-val="true" data-val-date="The field End Date must be a date." data-val-required="The End Date field is required."
+          id="endDate" formControlName="endDate" name="endDate" type="datetime" value="" />
+        <div *ngIf="formData.controls.endDate.errors && (formData.controls.endDate.dirty || formData.controls.endDate.touched)" class="alert-danger">
+          <div *ngIf="formData.controls.endDate.errors.required">
+            End Date is required
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-md-2" for="completion">Completion Date</label>
+      <div class="col-md-10">
+        <input class="form-control text-box single-line" data-val="true" data-val-date="The field Completion Date must be a date."
+          id="completion" formControlName="completion" name="completion" type="datetime" value="" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-md-2" for="empId">Assigned To</label>
+      <div class="col-md-10">
+        <select data-val="true" data-val-number="The field Manager must be a number." id="managerId" formControlName="empId" name="managerId">
+          <option *ngFor="let emp of employees" value="{{emp.empId}}">{{emp.empName}}</option>
+        </select>
+        <div *ngIf="formData.controls.empId.errors && (formData.controls.empId.dirty || formData.controls.empId.touched)" class="alert-danger">
+          <div *ngIf="formData.controls.empId.errors.required">
+            Select an employee
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-md-2" for="userStoryId">UserStory Id</label>
+      <div class="col-md-10">
+        <select data-val="true" data-val-number="The field Manager must be a number." id="userStoryId" formControlName="userStoryId" name="managerId">
+          <option *ngFor="let story of stories" value="{{story.userStoryId}}">{{story.story}}</option>
+        </select>
+        <div *ngIf="formData.controls.userStoryId.errors && (formData.controls.userStoryId.dirty || formData.controls.userStoryId.touched)"
+          class="alert-danger">
+          <div *ngIf="formData.controls.userStoryId.errors.required">
+            Select User Story
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-offset-2 col-md-10">
+        <input type="submit" value="Create" class="btn btn-default" />
+      </div>
+    </div>
+  </div>
+</form>
+<div>
+  <a href="/task/showTask">Back to List</a>
+</div>

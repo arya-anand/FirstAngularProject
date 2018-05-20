@@ -1,0 +1,107 @@
+<br>
+<br>
+<form [formGroup]="formData" (ngSubmit)="onClickSubmit(formData.value)">
+  <div class="form-horizontal">
+
+    <h4>
+      <b>Create Employee</b>
+    </h4>
+    <hr />
+
+    <div class="form-group">
+      <label class="control-label col-md-2" for="empName">Employee Name</label>
+      <div class="col-md-10">
+        <input class="form-control text-box single-line" data-val="true" data-val-required="Please Enter Employee Name" id="empName"
+          formControlName="empName" name="empName" type="text" value="" />
+        <div *ngIf="formData.controls.empName.errors && (formData.controls.empName.dirty || formData.controls.empName.touched)" class="alert-danger">
+          <div *ngIf="formData.controls.empName.errors.required">
+            Name is required
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-md-2" for="designation">Designation</label>
+      <div class="col-md-10">
+        <input class="form-control text-box single-line" data-val="true" data-val-required="Please Enter Designation" id="designation"
+          formControlName="designation" name="designation" type="text" value="" />
+        <div *ngIf="formData.controls.designation.errors && (formData.controls.designation.dirty || formData.controls.designation.touched)"
+          class="alert-danger">
+          <div *ngIf="formData.controls.designation.errors.required">
+            Designation is required
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-md-2" for="contactNo">Contact No</label>
+      <div class="col-md-10">
+        <input class="form-control text-box single-line" data-val="true" data-val-number="The field Contact No must be a number."
+          id="contactNo" formControlName="contactNo" name="contactNo" type="number" value="" />
+        <div *ngIf="formData.controls.contactNo.errors && (formData.controls.contactNo.dirty || formData.controls.contactNo.touched)"
+          class="alert-danger">
+          <div *ngIf="formData.controls.contactNo.errors.required">
+            Contact Number is required
+          </div>
+          <div *ngIf="formData.controls.contactNo.errors.minLength(10)">
+            Minimum 10 digits are required
+          </div>
+          <div *ngIf="formData.controls.contactNo.errors.maxLength">
+            Maximum 12 digits only
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-md-2" for="emailId">Email Id</label>
+      <div class="col-md-10">
+        <input class="form-control text-box single-line" data-val="true" data-val-email="Invalid Email Address." data-val-required="Email is required."
+          id="emailId" formControlName="emailId" name="emailId" type="email" value="" />
+        <div *ngIf="formData.controls.emailId.errors && (formData.controls.emailId.dirty || formData.controls.emailId.touched)" class="alert-danger">
+          <div *ngIf="formData.controls.emailId.errors.required">
+            EmailId is required
+          </div>
+          <div *ngIf="formData.controls.emailId.errors.pattern">
+            Invalid EmailId
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-md-2" for="skillSet">Skill Set</label>
+      <div class="col-md-10">
+        <input class="form-control text-box single-line" data-val="true" data-val-required="Please Enter SkillSet" id="skillSet"
+          formControlName="skillSet" name="skillSet" type="text" value="" />
+        <div *ngIf="formData.controls.skillSet.errors && (formData.controls.skillSet.dirty || formData.controls.skillSet.touched)"
+          class="alert-danger">
+          <div *ngIf="formData.controls.skillSet.errors.required">
+            SkillSet is required
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-md-2" for="managerId">Manager</label>
+      <div class="col-md-10">
+        <select data-val="true" data-val-number="The field Manager must be a number." id="managerId" formControlName="managerId"
+          name="managerId">
+          <option *ngFor="let emp of employees" value="{{emp.empId}}">{{emp.empName}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-offset-2 col-md-10">
+        <input type="submit" value="Create" class="btn btn-default" [disabled]="!formData.valid" />
+      </div>
+    </div>
+  </div>
+</form>
+<div>
+  <a href="/employee/showEmployee">Back to List</a>
+</div>

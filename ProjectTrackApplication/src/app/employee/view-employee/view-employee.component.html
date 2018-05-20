@@ -1,0 +1,37 @@
+<br>
+<br>
+<div>
+  <h4>Employee</h4>
+  <hr />
+  <dl class="dl-horizontal">
+    <dt>Employee Name</dt>
+
+    <dd>{{employee.empName}}</dd>
+
+    <dt>Designation</dt>
+
+    <dd>{{employee.designation}}</dd>
+
+    <dt>Contact No</dt>
+
+    <dd>{{employee.contactNo}}</dd>
+
+    <dt>Email Id</dt>
+
+    <dd>
+      <a href="{{employee.emailId}}">{{employee.emailId}}</a>
+    </dd>
+
+    <dt>Skill Set</dt>
+
+    <dd>{{employee.skillSet}}</dd>
+
+    <dt>Manager</dt>
+
+    <dd>{{employee.managerId}}</dd>
+
+  </dl>
+  <p>
+    <a href="/employee/edit/{{employee.empId}}">Edit</a>  |
+    <a href="/employee/">Back to List</a>
+  </p>

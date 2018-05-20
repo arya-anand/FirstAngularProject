@@ -1,0 +1,28 @@
+<br>
+<br>
+<h2><b>TASKS</b></h2>
+<p><a href="/task/createTask">Create New</a></p>
+  <table class="table">
+    <tr>
+      <th>Task Id</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Completion Date</th>
+      <th>Assigned To</th>
+      <th>UserStory Id</th>
+      <th>Actions</th>
+    </tr>
+    <tr *ngFor ="let task of tasks">
+      <td>{{task.taskId}}</td>
+      <td>{{task.startDate |date}}</td>
+      <td>{{task.endDate |date}}</td>
+      <td>{{task.completion |date}}</td>
+      <td>{{task.empId}}</td>
+      <td>{{task.userStoryId}}</td>
+      <td>
+        <a href="/task/edit/{{task.taskId}}"> Edit </a> |
+        <a href="/managerComment/showManagerComment/{{task.taskId}}"> Details </a>  |
+        <a href="/task/delete/{{task.taskId}}"> Delete </a> |
+      </td>
+    </tr>
+  </table>

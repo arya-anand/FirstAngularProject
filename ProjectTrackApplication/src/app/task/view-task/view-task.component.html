@@ -1,0 +1,26 @@
+<br>
+<br>
+<div>
+  <h4>Task</h4>
+  <hr />
+  <dl class="dl-horizontal">
+    <dt>Start Date</dt>
+
+    <dd>{{task.startDate | date}}</dd>
+
+    <dt>End Date</dt>
+
+    <dd>{{task.endDate | date}}</dd>
+
+    <dt>Completion Date</dt>
+
+    <dd>{{task.completion | date}}</dd>
+
+    <dt>Assigned To</dt>
+
+    <dd>{{task.empId}}</dd>
+  </dl>
+  <p>
+    <a href="/task/edit/{{task.taskId}}">Edit</a> |
+    <a href="/task">Back to List</a>
+  </p>

@@ -1,0 +1,45 @@
+<br>
+<br>
+<form [formGroup]="formData" (ngSubmit)="onClickSubmit(formData.value)">
+  <div class="form-horizontal">
+
+    <h4>Create ManagerComment</h4>
+    <hr />
+
+    <div class="form-group">
+      <label class="control-label col-md-2" for="comment">Manager Comment</label>
+      <div class="col-md-10">
+        <input class="form-control text-box single-line" id="comment" formControlName="comment" name="comment" type="text" value=""
+        />
+        <div *ngIf="formData.controls.comment.errors && (formData.controls.comment.dirty || formData.controls.comment.touched)" class="alert-danger">
+          <div *ngIf="formData.controls.comment.errors.required">
+            Comment is required
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="form-group">
+      <label class="control-label col-md-2" for="projTaskId">Task Id</label>
+      <div class="col-md-10">
+          <select data-val="true" data-val-number="The field Manager must be a number." id="projTaskId" formControlName="projTaskId" name="managerId">
+            <option *ngFor="let task of tasks" value="{{task.taskId}}">{{task.taskId}}</option>
+          </select>
+        <div *ngIf="formData.controls.projTaskId.errors && (formData.controls.projTaskId.dirty || formData.controls.projTaskId.touched)" class="alert-danger">
+          <div *ngIf="formData.controls.projTaskId.errors.required">
+            Project Task is required
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="form-group">
+      <div class="col-md-offset-2 col-md-10">
+        <input type="submit" value="Create" class="btn btn-default" [disabled]="!formData.valid"/>
+      </div>
+    </div>
+  </div>
+</form>
+<div>
+  <a href="/managerComment/showManagerComment/{{this.id}}">Back to List</a>
+</div>

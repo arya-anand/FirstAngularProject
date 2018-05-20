@@ -1,0 +1,48 @@
+<br>
+<br>
+<form [formGroup]="formData" (ngSubmit)="onClickSubmit(formData.value)">
+  <div class="form-horizontal">
+
+    <h4>Create UserStory</h4>
+    <hr />
+
+    <div class="form-group">
+      <label class="control-label col-md-2" for="story">User Story</label>
+      <div class="col-md-10">
+        <input class="form-control text-box single-line" id="story" formControlName="story" name="story" type="text" value="" />
+        <div *ngIf="formData.controls.story.errors && (formData.controls.story.dirty || formData.controls.story.touched)" class="alert-danger">
+          <div *ngIf="formData.controls.story.errors.required">
+            Story is required
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-md-2" for="projId">Project</label>
+      <div class="col-md-10">
+        <!-- <input class="form-control text-box single-line" data-val="true" data-val-number="The field Project Id must be a number."
+          data-val-required="The Project Id field is required." id="projId" name="projId" type="number" value="" />
+        <span class="field-validation-valid text-danger" data-valmsg-for="projId" data-valmsg-replace="true"></span> -->
+        <select data-val="true" data-val-number="The field Manager must be a number." id="projId" formControlName="projId" name="projId">
+          <option *ngFor="let proj of projects" value="{{proj.projId}}">{{proj.projName}}</option>
+        </select>
+        <div *ngIf="formData.controls.projId.errors && (formData.controls.projId.dirty || formData.controls.projId.touched)"
+          class="alert-danger">
+          <div *ngIf="formData.controls.projId.errors.required">
+            Project is required
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-offset-2 col-md-10">
+        <input type="submit" value="Create" class="btn btn-default" [disabled]="!formData.valid"/>
+      </div>
+    </div>
+  </div>
+</form>
+<div>
+  <a href="/userStory/showUserStory">Back to List</a>
+</div>

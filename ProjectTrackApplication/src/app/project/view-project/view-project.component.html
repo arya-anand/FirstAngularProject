@@ -1,0 +1,28 @@
+<br>
+<br>
+
+    <div>
+      <h4>Project</h4>
+      <hr />
+      <dl class="dl-horizontal">
+        <dt>Project Name</dt>
+
+        <dd>{{project.projName}}</dd>
+
+        <dt>StartDate</dt>
+
+        <dd>{{project.startDate | date}}</dd>
+
+        <dt>EndDate</dt>
+
+        <dd>{{project.endDate | date}}</dd>
+
+        <dt>Client Name</dt>
+
+        <dd>{{project.clientName}}</dd>
+
+      </dl>
+    <p>
+      <a href="/project/edit/{{project.projId}}">Edit</a> |
+      <a href="/project/">Back to List</a>
+    </p>
